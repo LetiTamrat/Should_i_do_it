@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>State 1 (Input)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-surface-variant": "#cfc4c5",
+                            "secondary": "#ffffff",
+                            "secondary-fixed": "#bef500",
+                            "on-error-container": "#ffdad6",
+                            "surface-container-high": "#2a2a2a",
+                            "surface-dim": "#131313",
+                            "on-tertiary-fixed": "#1a1c1c",
+                            "on-primary-fixed-variant": "#474747",
+                            "surface": "#131313",
+                            "tertiary-fixed": "#e2e2e2",
+                            "outline": "#988e90",
+                            "on-surface": "#e2e2e2",
+                            "surface-container-highest": "#353535",
+                            "on-tertiary-fixed-variant": "#454747",
+                            "error-container": "#93000a",
+                            "on-primary-container": "#757575",
+                            "on-secondary-container": "#536d00",
+                            "on-background": "#e2e2e2",
+                            "inverse-primary": "#5e5e5e",
+                            "on-tertiary-container": "#747576",
+                            "primary-fixed": "#e2e2e2",
+                            "inverse-on-surface": "#303030",
+                            "surface-bright": "#393939",
+                            "on-primary": "#303030",
+                            "surface-tint": "#c6c6c6",
+                            "tertiary": "#c6c6c7",
+                            "on-secondary-fixed": "#151f00",
+                            "tertiary-container": "#000000",
+                            "on-secondary": "#273500",
+                            "on-secondary-fixed-variant": "#3a4d00",
+                            "surface-container": "#1f1f1f",
+                            "surface-variant": "#353535",
+                            "on-error": "#690005",
+                            "error": "#ffb4ab",
+                            "secondary-fixed-dim": "#a6d700",
+                            "outline-variant": "#4c4546",
+                            "inverse-surface": "#e2e2e2",
+                            "on-tertiary": "#2f3131",
+                            "tertiary-fixed-dim": "#c6c6c7",
+                            "primary-container": "#000000",
+                            "background": "#131313",
+                            "surface-container-lowest": "#0e0e0e",
+                            "secondary-container": "#bef500",
+                            "surface-container-low": "#1b1b1b",
+                            "primary-fixed-dim": "#c6c6c6",
+                            "primary": "#c6c6c6",
+                            "on-primary-fixed": "#1b1b1b"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "container-padding": "40px",
+                            "section-margin": "120px",
+                            "unit": "8px",
+                            "stack-gap": "64px"
+                    },
+                    "fontFamily": {
+                            "body-mono": [
+                                    "Space Grotesk"
+                            ],
+                            "display-xl": [
+                                    "Inter"
+                            ],
+                            "roast-mono": [
+                                    "Space Grotesk"
+                            ],
+                            "headline-lg": [
+                                    "Inter"
+                            ],
+                            "label-caps": [
+                                    "Space Grotesk"
+                            ]
+                    },
+                    "fontSize": {
+                            "body-mono": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "24px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "display-xl": [
+                                    "120px",
+                                    {
+                                            "lineHeight": "100px",
+                                            "letterSpacing": "-0.05em",
+                                            "fontWeight": "900"
+                                    }
+                            ],
+                            "roast-mono": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "letterSpacing": "0em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "headline-lg": [
+                                    "64px",
+                                    {
+                                            "lineHeight": "60px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "900"
+                                    }
+                            ],
+                            "label-caps": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "letterSpacing": "0.1em",
+                                            "fontWeight": "500"
+                                    }
+                            ]
+                    }
+            },
+                },
+        }
+    </script>
+<style>
+        body {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-color: #131313;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative w-full md:w-[375px] mx-auto overflow-x-hidden antialiased">
+<!-- TopNavBar -->
+<header class="bg-background dark:bg-background docked full-width top-0 border-b-2 border-on-background dark:border-on-background flex justify-between items-center w-full px-container-padding py-4 transition-none z-50">
+<div class="font-display-xl text-roast-mono uppercase tracking-tighter text-on-background dark:text-on-background" style="font-size: 24px; line-height: 24px;">Should I do it</div>
+<div class="flex items-center gap-4">
+<div class="border border-on-background px-2 py-1 text-on-surface-variant font-label-caps text-label-caps">Yesterday...</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-4 py-section-margin w-full gap-stack-gap text-center relative z-10">
+<div class="w-full max-w-sm flex flex-col gap-6 items-center">
+<h1 class="font-headline-lg text-headline-lg text-on-background uppercase break-words w-full px-4">Confess.</h1>
+<div class="w-full relative px-6 mt-8">
+<input autocomplete="off" class="w-full bg-transparent border-0 border-b-2 border-on-background focus:border-secondary-fixed focus:ring-0 px-0 py-4 font-body-mono text-body-mono text-on-background placeholder:text-on-surface-variant transition-colors duration-0" placeholder="I did something stupid..." spellcheck="false" type="text"/>
+</div>
+<button class="mt-12 w-full bg-secondary-fixed text-tertiary-container border-2 border-secondary-fixed font-headline-lg text-[32px] leading-[40px] tracking-tight uppercase py-6 px-4 hover:bg-tertiary-container hover:text-secondary-fixed transition-none">
+                Be honest...
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background docked full-width bottom-0 border-t-2 border-on-background dark:border-on-background flex flex-col justify-center items-center w-full px-container-padding py-6 gap-2 transition-none z-50">
+<p class="font-label-caps text-label-caps text-on-surface-variant text-center opacity-50 uppercase tracking-widest">No accounts. No data saved. Just judgment.</p>
+</footer>
+</body></html>

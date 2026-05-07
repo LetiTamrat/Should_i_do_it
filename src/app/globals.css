@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #131313;
+  --color-fg: #e2e2e2;
+  --color-lime: #bef500;
+  --color-lime-dim: #a6d700;
+  --color-white: #ffffff;
+  --color-outline: #988e90;
+  --color-outline-dim: #4c4546;
+  --color-error: #ffb4ab;
+  --color-surface: #1f1f1f;
+  --color-surface-hi: #2a2a2a;
+  --color-black: #000000;
+
+  --font-display: var(--font-inter);
+  --font-mono: var(--font-space-grotesk);
+
+  --spacing-pad: 40px;
+  --spacing-section: 120px;
+  --spacing-stack: 64px;
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+body {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  position: relative;
+  min-height: 100dvh;
+}
+
+/* Background grain — fixed overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom utilities */
+@utility text-super {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(140px, 22vw, 240px);
+  line-height: 0.84;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility text-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 0.84;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+}
+
+@utility text-headline {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+}
+
+@utility text-roast {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: clamp(18px, 2.4vw, 24px);
+  line-height: 1.33;
+  font-weight: 700;
+}
+
+@utility text-body {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: 400;
+}
+
+@utility text-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@utility text-label-xs {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Input underline */
+.oracle-input {
+  border: 0;
+  border-bottom: 2px solid var(--color-white);
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 16px;
+  color: var(--color-fg);
+  outline: none;
+  transition: border-color 120ms;
+}
+.oracle-input:focus {
+  border-bottom-color: var(--color-lime);
+}
+.oracle-input::placeholder {
+  color: var(--color-outline);
+}
+
+/* Counter animation for percentage */
+@keyframes flicker-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  60% { opacity: 0.6; }
+  70% { opacity: 0.2; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.flicker-in {
+  animation: flicker-in 600ms steps(8, end) forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 320ms ease-out forwards;
+  animation-delay: 280ms;
+  opacity: 0;
+}

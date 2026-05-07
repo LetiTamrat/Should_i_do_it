@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Should I do it</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#cfc4c5",
+                    "secondary": "#ffffff",
+                    "secondary-fixed": "#bef500",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface": "#131313",
+                    "tertiary-fixed": "#e2e2e2",
+                    "outline": "#988e90",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-highest": "#353535",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "error-container": "#93000a",
+                    "on-primary-container": "#757575",
+                    "on-secondary-container": "#536d00",
+                    "on-background": "#e2e2e2",
+                    "inverse-primary": "#5e5e5e",
+                    "on-tertiary-container": "#747576",
+                    "primary-fixed": "#e2e2e2",
+                    "inverse-on-surface": "#303030",
+                    "surface-bright": "#393939",
+                    "on-primary": "#303030",
+                    "surface-tint": "#c6c6c6",
+                    "tertiary": "#c6c6c7",
+                    "on-secondary-fixed": "#151f00",
+                    "tertiary-container": "#000000",
+                    "on-secondary": "#273500",
+                    "on-secondary-fixed-variant": "#3a4d00",
+                    "surface-container": "#1f1f1f",
+                    "surface-variant": "#353535",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#a6d700",
+                    "outline-variant": "#4c4546",
+                    "inverse-surface": "#e2e2e2",
+                    "on-tertiary": "#2f3131",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-container": "#bef500",
+                    "surface-container-low": "#1b1b1b",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "primary": "#c6c6c6",
+                    "on-primary-fixed": "#1b1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "40px",
+                    "section-margin": "120px",
+                    "unit": "8px",
+                    "stack-gap": "64px"
+            },
+            "fontFamily": {
+                    "body-mono": [
+                            "Space Grotesk"
+                    ],
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "roast-mono": [
+                            "Space Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "label-caps": [
+                            "Space Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "body-mono": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-xl": [
+                            "120px",
+                            {
+                                    "lineHeight": "100px",
+                                    "letterSpacing": "-0.05em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "roast-mono": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "0em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "60px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "label-caps": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Custom massive font for the percentage to fit 240px requirement but still use tailwind concepts where possible */
+        .text-super-xl {
+            font-size: 240px;
+            line-height: 200px;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Input styling */
+        .oracle-input:focus {
+            outline: none;
+            border-bottom-color: #bef500; /* secondary-fixed */
+        }
+    </style>
+</head>
+<body class="bg-background dark:bg-background text-on-background dark:text-on-background min-h-screen flex flex-col font-body-mono antialiased overflow-x-hidden">
+<!-- TopNavBar component -->
+<nav class="bg-background dark:bg-background text-secondary-fixed dark:text-secondary-fixed font-label-caps text-label-caps border-b-2 border-on-background dark:border-on-background flex justify-between items-center w-full px-container-padding py-4 sticky top-0 z-40 transition-none">
+<div class="font-display-xl text-roast-mono uppercase tracking-tighter text-on-background dark:text-on-background flex-1">SHOULD I DO IT</div>
+<!-- Top-right pill as requested -->
+<div class="hidden md:flex border border-secondary px-4 py-2 text-secondary items-center gap-2 hover:bg-secondary hover:text-background transition-none mx-4">
+<span class="font-body-mono text-label-caps">Yesterday: 8,432 people asked about texting their ex →</span>
+</div>
+<div class="flex items-center gap-6 flex-1 justify-end">
+<!-- Navigation links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="text-secondary-fixed font-bold hover:bg-secondary-fixed hover:text-on-secondary-fixed px-2 py-1 transition-none uppercase" href="#">Should I do it</a>
+<a class="text-on-surface-variant hover:bg-secondary-fixed hover:text-on-secondary-fixed px-2 py-1 transition-none uppercase" href="#">Bad Decision of the Day</a>
+</div>
+<button class="bg-secondary-fixed text-primary-container px-6 py-2 border-2 border-secondary-fixed hover:bg-primary-container hover:text-secondary-fixed hover:border-secondary-fixed transition-none font-label-caps text-label-caps uppercase whitespace-nowrap">
+                BAD DECISION OF THE DAY
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col border-b-2 border-on-background">
+<!-- STATE 1: Initial Load & Input -->
+<section class="flex flex-col justify-center items-center p-container-padding py-section-margin relative group w-full max-w-4xl mx-auto">
+<div class="absolute top-4 left-4 border border-outline px-2 py-1 text-outline font-label-caps text-label-caps">
+                STATE_01 // INPUT
+            </div>
+<div class="w-full flex flex-col gap-stack-gap text-center items-center">
+<h1 class="font-headline-lg text-headline-lg text-on-background uppercase tracking-tighter">SHOULD I DO IT</h1>
+<div class="w-full relative mt-12 max-w-2xl">
+<input class="oracle-input w-full bg-transparent border-0 border-b-2 border-secondary text-center text-roast-mono font-roast-mono pb-4 placeholder:text-surface-variant placeholder:font-body-mono transition-colors" placeholder="What are you about to do?" type="text"/>
+</div>
+<div class="mt-8 flex flex-col items-center gap-4">
+<button class="bg-secondary-fixed text-primary-container font-display-xl text-roast-mono px-12 py-6 border-0 hover:bg-primary-container hover:text-secondary-fixed hover:border-2 hover:border-secondary-fixed transition-none uppercase tracking-tight">
+                        You're stalling.
+                    </button>
+<div class="font-label-caps text-label-caps text-error">ATTEMPT #4</div>
+</div>
+</div>
+</section>
+<!-- STATE 2: Result (Demonstration - Can be toggled with JS) -->
+<section class="flex flex-col justify-center items-center p-container-padding py-section-margin bg-background relative w-full border-t-2 border-on-background mt-12">
+<div class="absolute top-4 left-4 border border-outline px-2 py-1 text-outline font-label-caps text-label-caps">
+                STATE_02 // JUDGMENT
+            </div>
+<div class="w-full max-w-4xl flex flex-col items-center justify-center gap-8 text-center mx-auto">
+<!-- Huge 240px Electric Lime percentage -->
+<div class="text-super-xl text-secondary-fixed tabular-nums">
+                    23%
+                </div>
+<div class="border-2 border-secondary bg-primary-container p-12 w-full mt-8 max-w-3xl">
+<p class="font-roast-mono text-roast-mono text-secondary uppercase tracking-wider">
+                        "You already know the answer. You're just here for validation."
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 mt-12 w-full justify-center max-w-3xl">
+<button class="bg-secondary-fixed text-primary-container font-display-xl text-roast-mono px-8 py-4 border-2 border-secondary-fixed hover:bg-primary-container hover:text-secondary-fixed transition-none uppercase tracking-tight flex-1 sm:flex-none">
+                        Try another bad decision
+                    </button>
+<button class="bg-transparent text-secondary font-display-xl text-roast-mono px-8 py-4 border-2 border-secondary hover:bg-secondary hover:text-primary-container transition-none uppercase tracking-tight flex-1 sm:flex-none flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">share</span>
+                        Share this
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer component -->
+<footer class="bg-background dark:bg-background text-on-background dark:text-on-background font-body-mono text-label-caps border-t-2 border-on-background dark:border-on-background flex flex-col md:flex-row justify-between items-center w-full px-container-padding py-unit gap-4 transition-none mt-auto">
+<div class="text-on-surface-variant hover:text-secondary-fixed transition-none">
+            © 2024 JUDGMENT ENGINE. PROCEED AT YOUR OWN PERIL.
+        </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none uppercase" href="#">SYSTEM_LOGS</a>
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none uppercase" href="#">TERMINATE_SESSION</a>
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none uppercase" href="#">DISCLAIMER</a>
+</div>
+</footer>
+</body></html>

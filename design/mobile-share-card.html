@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Share Card - ORACLE.SYS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Inter:wght@900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#cfc4c5",
+                        "secondary": "#ffffff",
+                        "secondary-fixed": "#bef500",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#e2e2e2",
+                        "outline": "#988e90",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#757575",
+                        "on-secondary-container": "#536d00",
+                        "on-background": "#e2e2e2",
+                        "inverse-primary": "#5e5e5e",
+                        "on-tertiary-container": "#747576",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#303030",
+                        "surface-bright": "#393939",
+                        "on-primary": "#303030",
+                        "surface-tint": "#c6c6c6",
+                        "tertiary": "#c6c6c7",
+                        "on-secondary-fixed": "#151f00",
+                        "tertiary-container": "#000000",
+                        "on-secondary": "#273500",
+                        "on-secondary-fixed-variant": "#3a4d00",
+                        "surface-container": "#1f1f1f",
+                        "surface-variant": "#353535",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#a6d700",
+                        "outline-variant": "#4c4546",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "primary-container": "#000000",
+                        "background": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-container": "#bef500",
+                        "surface-container-low": "#1b1b1b",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "primary": "#c6c6c6",
+                        "on-primary-fixed": "#1b1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "40px",
+                        "section-margin": "120px",
+                        "unit": "8px",
+                        "stack-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "body-mono": ["Space Grotesk"],
+                        "display-xl": ["Inter"],
+                        "roast-mono": ["Space Grotesk"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-mono": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-xl": ["120px", { "lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                        "roast-mono": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "700" }],
+                        "headline-lg": ["64px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Neo-brutalist static grain */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center font-body-mono selection:bg-secondary-fixed selection:text-tertiary-container max-w-[375px] mx-auto relative overflow-hidden">
+<div class="grain-overlay"></div>
+<!-- Main Content Area centered -->
+<main class="w-full px-container-padding flex flex-col items-center justify-center gap-stack-gap z-10">
+<!-- Shareable Square Card (Instagram Story format preview) -->
+<div class="w-[295px] h-[295px] border-4 border-secondary bg-primary-container p-6 flex flex-col justify-between items-center relative group">
+<div class="w-full text-center mt-2">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">YOU ARE</p>
+</div>
+<!-- Massive Percentage -->
+<div class="w-full flex justify-center items-center">
+<h1 class="font-display-xl text-display-xl text-secondary-fixed leading-none tracking-tighter mix-blend-screen text-[100px]">87<span class="text-[60px] align-top">%</span></h1>
+</div>
+<!-- Roast -->
+<div class="w-full text-center mb-2">
+<p class="font-roast-mono text-roast-mono text-secondary uppercase leading-tight">PREDICTABLE.</p>
+</div>
+<!-- Branding watermark -->
+<div class="absolute bottom-2 right-2 opacity-50">
+<p class="font-label-caps text-[10px] tracking-widest text-secondary">Should I do it</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col w-[295px] gap-4">
+<button class="w-full bg-secondary-fixed text-tertiary-container border-2 border-secondary-fixed py-4 font-roast-mono text-[18px] uppercase tracking-wide hover:bg-tertiary-container hover:text-secondary-fixed hover:border-secondary-fixed transition-none flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+                DOWNLOAD IMAGE
+            </button>
+<button class="w-full bg-transparent text-secondary border-2 border-secondary py-4 font-roast-mono text-[18px] uppercase tracking-wide hover:bg-secondary hover:text-tertiary-container transition-none flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">link</span>
+                COPY LINK
+            </button>
+</div>
+</main>
+</body></html>

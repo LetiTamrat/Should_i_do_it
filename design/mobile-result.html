@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ORACLE.SYS - Result</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#cfc4c5",
+                        "secondary": "#ffffff",
+                        "secondary-fixed": "#bef500",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#e2e2e2",
+                        "outline": "#988e90",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#757575",
+                        "on-secondary-container": "#536d00",
+                        "on-background": "#e2e2e2",
+                        "inverse-primary": "#5e5e5e",
+                        "on-tertiary-container": "#747576",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#303030",
+                        "surface-bright": "#393939",
+                        "on-primary": "#303030",
+                        "surface-tint": "#c6c6c6",
+                        "tertiary": "#c6c6c7",
+                        "on-secondary-fixed": "#151f00",
+                        "tertiary-container": "#000000",
+                        "on-secondary": "#273500",
+                        "on-secondary-fixed-variant": "#3a4d00",
+                        "surface-container": "#1f1f1f",
+                        "surface-variant": "#353535",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#a6d700",
+                        "outline-variant": "#4c4546",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "primary-container": "#000000",
+                        "background": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-container": "#bef500",
+                        "surface-container-low": "#1b1b1b",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "primary": "#c6c6c6",
+                        "on-primary-fixed": "#1b1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "40px",
+                        "section-margin": "120px",
+                        "unit": "8px",
+                        "stack-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "body-mono": ["Space Grotesk"],
+                        "display-xl": ["Inter"],
+                        "roast-mono": ["Space Grotesk"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-mono": ["18px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+                        "roast-mono": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "700"}],
+                        "headline-lg": ["64px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "label-caps": ["14px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* CSS noise grain overlay */
+        .bg-grain {
+            position: relative;
+        }
+        .bg-grain::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            z-index: 50;
+        }
+        
+        /* Custom massive size for mobile */
+        .text-massive-mobile {
+            font-size: 140px; /* Reduced from 240px for mobile fit, but still huge */
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background dark:bg-background text-on-background dark:text-on-background bg-grain min-h-screen flex flex-col font-body-mono selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background text-secondary-fixed dark:text-secondary-fixed font-label-caps text-label-caps border-b-2 border-on-background dark:border-on-background transition-none flex justify-between items-center w-full px-container-padding py-4 z-40 sticky top-0">
+<div class="font-display-xl text-roast-mono uppercase tracking-tighter text-on-background dark:text-on-background">Should I do it</div>
+<div class="hidden">
+<!-- Search hidden -->
+</div>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 border-2 border-secondary-fixed hover:bg-transparent hover:text-secondary-fixed transition-colors font-label-caps uppercase hidden md:block">
+            BAD DECISION OF THE DAY
+        </button>
+</nav>
+<!-- Main Content Canvas - Mobile Focus Result State -->
+<main class="flex-grow flex flex-col justify-center items-center px-4 py-12 relative z-10 w-full max-w-[375px] mx-auto text-center h-full">
+<!-- Echoed Question -->
+<div class="w-full mb-8 border border-on-background p-4 bg-surface-container-lowest">
+<p class="font-body-mono text-body-mono text-on-surface-variant uppercase tracking-widest text-xs mb-2">QUERY SUBMITTED:</p>
+<p class="font-roast-mono text-roast-mono text-on-background">"Should I text my ex at 2AM?"</p>
+</div>
+<!-- The Result Percentage -->
+<div class="my-8 flex flex-col items-center justify-center w-full">
+<h1 class="font-display-xl text-secondary-fixed text-[160px] leading-[140px] tracking-tighter -ml-4">
+                2%
+            </h1>
+<p class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest mt-2 border-b-2 border-secondary-fixed pb-1">SURVIVAL RATE</p>
+</div>
+<!-- The Roast -->
+<div class="border-2 border-on-background bg-primary-container w-full p-6 my-8">
+<p class="font-roast-mono text-roast-mono text-on-background uppercase text-center break-words">
+                ERROR 404: DIGNITY NOT FOUND. ABORT.
+            </p>
+</div>
+<!-- Actions -->
+<div class="w-full mt-auto flex flex-col gap-4">
+<button class="w-full bg-secondary-fixed text-primary-container font-display-xl text-[24px] leading-none py-6 border-2 border-secondary-fixed hover:bg-primary-container hover:text-secondary-fixed transition-none rounded-none uppercase">
+                Try another bad decision
+            </button>
+<button class="w-full bg-transparent text-secondary-fixed font-display-xl text-[24px] leading-none py-6 border-2 border-secondary-fixed hover:bg-secondary-fixed hover:text-primary-container transition-none rounded-none uppercase">
+                Share this
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background text-on-background dark:text-on-background font-body-mono text-label-caps border-t-2 border-on-background dark:border-on-background transition-none flex flex-col md:flex-row justify-between items-center w-full px-container-padding py-unit gap-4 z-40 mt-auto">
+<div class="hidden">
+<!-- Brand Logo Hidden -->
+</div>
+<div class="flex flex-col md:flex-row gap-4 items-center w-full justify-between">
+<p class="text-center md:text-left">© 2024 JUDGMENT ENGINE. PROCEED AT YOUR OWN PERIL.</p>
+<div class="flex flex-wrap gap-4 justify-center">
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none" href="#">SYSTEM_LOGS</a>
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none" href="#">TERMINATE_SESSION</a>
+<a class="text-on-surface-variant hover:underline hover:text-secondary-fixed transition-none" href="#">DISCLAIMER</a>
+</div>
+</div>
+</footer>
+</body></html>
