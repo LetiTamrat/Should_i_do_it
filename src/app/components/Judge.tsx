@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { StateLabel } from "./StateLabel";
 import { ShareModal } from "./ShareModal";
+import { FloatingConfessions } from "./FloatingConfessions";
 
 type Phase = "idle" | "loading" | "result";
 
@@ -120,9 +120,9 @@ export function Judge() {
   return (
     <>
       {showInput && (
-        <section className="relative w-full max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-32 flex flex-col items-center text-center">
-          <StateLabel>STATE_01 // INPUT</StateLabel>
-
+        <section className="relative w-full min-h-[calc(100dvh-160px)] flex flex-col items-center text-center px-6 md:px-10 py-20 md:py-24 overflow-hidden">
+          <FloatingConfessions />
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
           <h1 className="text-headline md:text-display uppercase tracking-tight font-display">
             <span className="md:hidden">CONFESS.</span>
             <span className="hidden md:inline">SHOULD I DO IT</span>
@@ -169,13 +169,12 @@ export function Judge() {
           <div className="mt-16 text-label-xs text-outline">
             NO ACCOUNTS. NO DATA SAVED. JUST JUDGMENT.
           </div>
+          </div>
         </section>
       )}
 
       {phase === "result" && verdict && (
         <section className="relative w-full max-w-4xl mx-auto px-6 md:px-10 py-12 md:py-24 flex flex-col items-center text-center">
-          <StateLabel>STATE_02 // JUDGMENT</StateLabel>
-
           <div className="mt-8 mb-6">
             <div className="text-label-xs text-outline mb-3">
               QUERY SUBMITTED:

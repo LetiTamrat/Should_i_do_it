@@ -119,31 +119,19 @@ export async function GET(req: NextRequest) {
           }}
         />
 
-        {/* Top label */}
+        {/* Question echo */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 12,
-            marginTop: 28,
+            marginTop: 56,
           }}
         >
           <div
             style={{
-              fontSize: 22,
-              letterSpacing: "0.18em",
-              color: OUTLINE,
-              textTransform: "uppercase",
-              fontWeight: 700,
-            }}
-          >
-            JUDGMENT_ENGINE // QUERY
-          </div>
-          <div
-            style={{
               display: "flex",
-              fontSize: 28,
+              fontSize: 30,
               color: WHITE,
               fontWeight: 700,
               textAlign: "center",
@@ -226,7 +214,7 @@ export async function GET(req: NextRequest) {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             alignItems: "center",
             width: "100%",
           }}
@@ -234,24 +222,11 @@ export async function GET(req: NextRequest) {
           <div
             style={{
               display: "flex",
-              fontSize: 18,
-              color: OUTLINE,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              fontWeight: 700,
-            }}
-          >
-            [STATE_02 // JUDGMENT]
-          </div>
-          <div
-            style={{
-              display: "flex",
               alignItems: "center",
-              gap: 16,
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logoSrc} alt="Should I Do It" width={120} height={72} />
+            <img src={logoSrc} alt="Should I Do It" width={140} height={84} />
           </div>
         </div>
       </div>

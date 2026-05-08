@@ -145,3 +145,44 @@ body::before {
   animation-delay: 280ms;
   opacity: 0;
 }
+
+/* Floating confession cards in hero */
+@keyframes confession-drift {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.55;
+  }
+  25% {
+    transform: translateY(-6px) translateX(2px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-2px) translateX(-3px);
+    opacity: 0.45;
+  }
+  75% {
+    transform: translateY(4px) translateX(1px);
+    opacity: 0.65;
+  }
+}
+
+@keyframes confession-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.3; }
+  95% { opacity: 0.9; }
+}
+
+.confession-card {
+  animation:
+    confession-drift 9s ease-in-out infinite,
+    confession-flicker 7s steps(1, end) infinite;
+  will-change: transform, opacity;
+}
+
+.confession-card:nth-child(even) {
+  animation-duration: 11s, 8s;
+}
+
+.confession-card:nth-child(3n) {
+  animation-duration: 13s, 9s;
+}

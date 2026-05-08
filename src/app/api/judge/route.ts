@@ -86,47 +86,61 @@ async function generateRoast(
 
   const metaNote =
     attempt >= 2
-      ? `\nThe user has already asked this same question ${attempt} times — they are stalling, hoping for a different answer. Mock that directly. Reference the re-roll.`
+      ? `\nThis is the user's ATTEMPT #${attempt} on this exact same question. They're stalling, hoping for a different number. Lean into that — call out the re-roll, mock the stalling, get meaner each time. Reference the attempt number if it lands.`
       : "";
 
-  const prompt = `You are a sarcastic, slightly chaotic, very relatable judgment engine. The user submitted: "${question}"
+  const prompt = `You roast people's bad decisions. The user submitted: "${question}"
 
-Their bad-decision survival rate has been calculated as ${percentage}%.${metaNote}
+Their survival rate is ${percentage}%.${metaNote}
 
-Output ONE single roast line, max 110 characters, in ALL CAPS, with terminal-diagnostic energy.
+Write ONE roast line — punchy, specific, funny. ALL CAPS. Max 110 characters.
 
-Style examples (for tone, do not copy):
-- "ERROR 404: DIGNITY NOT FOUND. ABORT."
-- "YOU ALREADY KNOW THE ANSWER. YOU'RE JUST HERE FOR VALIDATION."
-- "THIS WILL EITHER BUILD CHARACTER OR TRAUMA."
-- "THIS IS YOUR THIRD ATTEMPT. THE ANSWER ISN'T CHANGING. YOU ARE."
+GOOD roasts (these actually got laughs):
+- Q: "should I text my ex at 2am" → "YOUR THUMBS ARE FASTER THAN YOUR THERAPIST. RECONSIDER."
+- Q: "should I quit my job to start a startup" → "STATISTICALLY, YOUR LANDLORD WILL NOT ACCEPT 'PRE-SEED VIBES' AS RENT."
+- Q: "should I shave my head" → "78%? GO. WORST CASE YOU LOOK LIKE A VILLAIN. THAT'S A WIN, ACTUALLY."
+- Q: "should I message my coworker" → "HR HAS ENTERED THE CHAT. HR HAS LEFT THE CHAT. HR IS UPDATING ITS RESUME."
+- Q: "should I get bangs" → "BANGS ARE A CRY FOR HELP THAT YOUR FOREHEAD WILL HEAR FIRST."
+- Q: "should I eat the leftover sushi" → "12%. WHATEVER LIVES IN THAT CONTAINER NOW IS NOT SUSHI ANYMORE."
+- Q: "should I go to the gym" → "82%. GO. YOUR FUTURE SELF IS LITERALLY BEGGING YOU IN A GROUP CHAT YOU CAN'T SEE."
+- Q (attempt 3): "should I text my ex" → "ATTEMPT THREE. THE NUMBER ISN'T MOVING. YOU ARE."
 
-Hard rules:
-- ONE sentence. No prefixes, no quotes, no labels.
-- ALL CAPS.
-- Reference the user's specific situation — what they typed.
-- Be ruthless but funny, not cruel. No slurs, no mentions of self-harm.
-- Match the percentage: low % = harsher, high % = warmer-but-still-judgy.
-- Max 110 characters.
+Comedy rules:
+- BE SPECIFIC to what they typed. Reference an actual detail from their question. Generic roasts die.
+- One vivid image > five abstract insults. ("YOUR LANDLORD" hits harder than "YOU WILL FAIL")
+- Setup + turn. Build a tiny expectation, snap it.
+- Don't moralize. Don't say "regret." Don't say "you'll learn." Don't say "build character or trauma." Banned.
+- Match the %: under 30 = ruthless, 30-60 = grim-amused, 60-90 = warmer but still snarky, 90+ = grudgingly hyping them.
+- Internet group-chat voice. Not boomer-dad voice.
+- ONE sentence (or two short ones with a period between). No emojis. No quotes around the output. ALL CAPS. Max 110 chars.
 
-Return only the line.`;
+Return ONLY the roast line, nothing else.`;
 
   try {
     const result = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
       config: {
-        temperature: 1.05,
-        maxOutputTokens: 80,
+        temperature: 1.15,
+        maxOutputTokens: 120,
         thinkingConfig: { thinkingBudget: 0 },
       },
     });
     const text = (result.text ?? "").trim();
-    const cleaned = text
+    let cleaned = text
       .replace(/^["'`]+|["'`]+$/g, "")
       .replace(/\s+/g, " ")
-      .toUpperCase();
-    if (!cleaned || cleaned.length > 200) return fallbackRoast(attempt);
+      .replace(/^Q:\s.*?→\s*/i, "") // strip example-prefix if model echoed one
+      .replace(/^A:\s*/i, "")
+      .toUpperCase()
+      .trim();
+    if (!cleaned) return fallbackRoast(attempt);
+    // Truncate gracefully at sentence boundary instead of falling back
+    if (cleaned.length > 220) {
+      const cut = cleaned.slice(0, 220);
+      const lastPeriod = Math.max(cut.lastIndexOf("."), cut.lastIndexOf("!"), cut.lastIndexOf("?"));
+      cleaned = lastPeriod > 80 ? cut.slice(0, lastPeriod + 1) : cut;
+    }
     return cleaned;
   } catch {
     return fallbackRoast(attempt);
